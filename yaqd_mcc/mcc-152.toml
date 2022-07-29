@@ -1,0 +1,39 @@
+protocol = "mcc152"
+doc = ""
+traits = ["has-position", "has-limits", "is-daemon"]
+
+[links]
+source = "https://github.com/yaq-project/yaqd-mcc"
+bugtracker = "https://gitlab.com/yaq/mccdaq/-/issues"
+
+[installation]
+PyPI = "https://pypi.org/project/yaqd-mcc"
+
+[config]
+
+[config.address]
+doc = "daqhat address"
+type = "int"
+default = 0
+
+[messages]
+
+[messages.get_address]
+doc = "get board address"
+response = "int"
+
+[messages.set_voltage0]
+doc = "set voltage for analog output channel 0"
+request = [{"name"="voltage0", "type"="float"}]
+
+[messages.set_voltage1]
+doc = "set voltage for analog output channel 1"
+request = [{"name"="voltage1", "type"="float"}]
+
+[messages.get_voltage0]
+doc = "get current voltage for analog output channel 0"
+response = "float"
+
+[messages.get_voltage1]
+doc = "get current voltage for analog output channel 1"
+response = "float"
