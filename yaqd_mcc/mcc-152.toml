@@ -1,0 +1,29 @@
+protocol = "mcc152"
+doc = ""
+traits = ["has-position", "has-limits", "is-daemon"]
+
+[links]
+source = "https://github.com/yaq-project/yaqd-mcc"
+bugtracker = "https://gitlab.com/yaq/mccdaq/-/issues"
+
+[installation]
+PyPI = "https://pypi.org/project/yaqd-mcc"
+
+[config]
+
+[config.address]
+doc = "daqhat address"
+type = "int"
+default = 0
+
+[config.terminal]
+doc = "daqhat terminal"
+type = "string"
+
+[messages]
+
+[messages.get_address]
+doc = "get board address"
+response = "int"
+
+
