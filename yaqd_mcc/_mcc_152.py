@@ -11,11 +11,25 @@ class Mcc152(HasLimits, HasPosition, IsDaemon):
 
     def __init__(self, name, config, config_filepath):
         super().__init__(name, config, config_filepath)
-        # Perform any unique initialization
+        # Set up board communication address
         self.address = self._config["address"]
+        self.terminal = (self._config["terminal"][:-1], int(self._config["terminal"][-1]))
+        
+        # Set up initiation of board and outputs
+        self.busy=True
         self.d = daqhats.mcc152(self.address)
+        if self.terminal[0]=="ao" and 0<=self.terminal[1]<=1:
+            self.d.a_out_write(self.terminal[1], 0)
+        elif self.terminal[0]=="dio" and 0<=self.terminal[1]<=7:
+            pass #implement dio reseting here
+        else: 
+            pass #implement error here
+        self._set_position(0)
+        self._state["destination"]=0
+        self.busy=False  
+        print(config_filepath)      
+        
         self._state["hw_limits"] = [0,5]
-        print(config_filepath)
                 
 
     async def update_state(self):
@@ -38,17 +52,17 @@ class Mcc152(HasLimits, HasPosition, IsDaemon):
         """
         voltage is float 0.0-5.0
         """
-        terminal = (self._config["terminal"][:-1], int(self._config["terminal"][-1]))
         
-        if terminal[0]=="ao" and 0<=terminal[1]<=1:
+        
+        if self.terminal[0]=="ao" and 0<=self.terminal[1]<=1:
             try:
                 self.busy=True
-                self.d.a_out_write(terminal[1], float(v)) 
+                self.d.a_out_write(self.terminal[1], float(v)) 
                 self._state["position"] = v
                 self.busy=False
             except:
                 raise TypeError("The given voltage is not a number")
-        elif terminal[0]=="dio" and 0<=terminal[1]<=7:
+        elif self.terminal[0]=="dio" and 0<=self.terminal[1]<=7:
             pass #implement digital io terminal writing 
         else:
             pass #implement appropriate error
