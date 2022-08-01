@@ -87,6 +87,10 @@
                 "null",
                 "string"
             ]
+        },
+        "terminal": {
+            "doc": "daqhat terminal",
+            "type": "string"
         }
     },
     "doc": "",
@@ -157,16 +161,6 @@
                 "string"
             ]
         },
-        "get_voltage0": {
-            "doc": "get current voltage for analog output channel 0",
-            "request": [],
-            "response": "float"
-        },
-        "get_voltage1": {
-            "doc": "get current voltage for analog output channel 1",
-            "request": [],
-            "response": "float"
-        },
         "id": {
             "doc": "JSON object with information to identify the daemon, including name, kind, make, model, serial.\n",
             "origin": "is-daemon",
@@ -211,26 +205,6 @@
                 }
             ],
             "response": "double"
-        },
-        "set_voltage0": {
-            "doc": "set voltage for analog output channel 0",
-            "request": [
-                {
-                    "name": "voltage0",
-                    "type": "float"
-                }
-            ],
-            "response": "null"
-        },
-        "set_voltage1": {
-            "doc": "set voltage for analog output channel 1",
-            "request": [
-                {
-                    "name": "voltage1",
-                    "type": "float"
-                }
-            ],
-            "response": "null"
         },
         "shutdown": {
             "doc": "Cleanly shutdown (or restart) daemon.",

@@ -14,6 +14,8 @@ class Mcc152(HasLimits, HasPosition, IsDaemon):
         # Perform any unique initialization
         self.address = self._config["address"]
         self.d = daqhats.mcc152(self.address)
+        self._state["hw_limits"] = [0,5]
+        print(config_filepath)
                 
 
     async def update_state(self):
@@ -31,47 +33,24 @@ class Mcc152(HasLimits, HasPosition, IsDaemon):
             
     def get_address(self):
         return self.address
-
-    def set_voltage0(self, v0):
-        """
-        voltage is float 0.0-5.0
-        """
-        try:
-            self.busy=True
-            self.d.a_out_write(0, float(v0))
-            self.voltage0 = float(v0)
-            print(self.voltage0)
-            self.busy=False
-        except:
-            raise TypeError("The given voltage is not a number")
-
-    def get_voltage0(self) -> float:
-        try:
-            return self.voltage0
-        except:
-            print("voltage0 has not been set.")
-            return
-
-    def set_voltage1(self, v1):
-        """
-        voltage is float 0.0-5.0
-        """
-        try:
-            self.busy=True
-            self.d.a_out_write(1, float(v1))
-            self.voltage1 = float(v1)
-            print(self.voltage1)
-            self.busy=False
-        except:
-            raise TypeError("The given voltage is not a number")
-
-    def get_voltage1(self) -> float:
-        try:
-            return self.voltage1
-        except:
-            print("voltage1 has not been set.")
-            return
-
-    def _set_position(self, pos):
-        pass
         
+    def _set_position(self, v): #why this method need _ before but doesnt show as so in messages?
+        """
+        voltage is float 0.0-5.0
+        """
+        terminal = (self._config["terminal"][:-1], int(self._config["terminal"][-1]))
+        
+        if terminal[0]=="ao" and 0<=terminal[1]<=1:
+            try:
+                self.busy=True
+                self.d.a_out_write(terminal[1], float(v)) 
+                self._state["position"] = v
+                self.busy=False
+            except:
+                raise TypeError("The given voltage is not a number")
+        elif terminal[0]=="dio" and 0<=terminal[1]<=7:
+            pass #implement digital io terminal writing 
+        else:
+            pass #implement appropriate error
+            
+    
