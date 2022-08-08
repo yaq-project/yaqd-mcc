@@ -18,7 +18,17 @@ default = 0
 
 [config.terminal]
 doc = "daqhat terminal"
+type = "int"
+
+[config.make]
+doc = "make of the daqhat"
 type = "string"
+default = "Measurement Computing Corporation (MCC)"
+
+[config.model]
+doc = "model of the daqhat"
+type = "string"
+default = "MCC 152"
 
 [messages]
 

@@ -47,20 +47,16 @@
             "type": "boolean"
         },
         "make": {
-            "default": null,
+            "default": "Measurement Computing Corporation (MCC)",
+            "doc": "make of the daqhat",
             "origin": "is-daemon",
-            "type": [
-                "null",
-                "string"
-            ]
+            "type": "string"
         },
         "model": {
-            "default": null,
+            "default": "MCC 152",
+            "doc": "model of the daqhat",
             "origin": "is-daemon",
-            "type": [
-                "null",
-                "string"
-            ]
+            "type": "string"
         },
         "out_of_limits": {
             "default": "closest",
@@ -90,7 +86,7 @@
         },
         "terminal": {
             "doc": "daqhat terminal",
-            "type": "string"
+            "type": "int"
         }
     },
     "doc": "",
