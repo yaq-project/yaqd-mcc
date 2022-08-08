@@ -27,5 +27,5 @@ jobs:
       run: |
         yaqd-mcc-118 --version
         yaqd-mcc-118 --help
-	    yaqd-mcc-152 --version
-	    yaqd-mcc-152 --help
+	      yaqd-mcc-152-aout --version
+	      yaqd-mcc-152-aout --help

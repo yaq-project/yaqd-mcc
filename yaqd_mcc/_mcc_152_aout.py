@@ -1,4 +1,4 @@
-__all__ = ["Mcc152"]
+__all__ = ["Mcc152AOut"]
 
 import asyncio
 from typing import Dict, Any, List
@@ -6,8 +6,8 @@ import daqhats  # type: ignore
 from yaqd_core import IsDaemon, HasPosition, HasLimits
 
 
-class Mcc152(HasLimits, HasPosition, IsDaemon):
-    _kind = "mcc-152"
+class Mcc152AOut(HasLimits, HasPosition, IsDaemon):
+    _kind = "mcc-152-aout"
 
     def __init__(self, name, config, config_filepath):
         super().__init__(name, config, config_filepath)
