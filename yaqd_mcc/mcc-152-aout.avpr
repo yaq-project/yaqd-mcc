@@ -48,15 +48,19 @@
         },
         "make": {
             "default": "Measurement Computing Corporation (MCC)",
-            "doc": "make of the daqhat",
             "origin": "is-daemon",
-            "type": "string"
+            "type": [
+                "null",
+                "string"
+            ]
         },
         "model": {
             "default": "MCC 152",
-            "doc": "model of the daqhat",
             "origin": "is-daemon",
-            "type": "string"
+            "type": [
+                "null",
+                "string"
+            ]
         },
         "out_of_limits": {
             "default": "closest",
