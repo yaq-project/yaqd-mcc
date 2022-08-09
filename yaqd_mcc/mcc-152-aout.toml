@@ -24,8 +24,6 @@ type = "int"
 default = "Measurement Computing Corporation (MCC)"
 
 [config.model]
-doc = "model of the daqhat"
-type = "string"
 default = "MCC 152"
 
 [messages]
