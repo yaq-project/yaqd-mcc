@@ -21,8 +21,6 @@ doc = "daqhat terminal"
 type = "int"
 
 [config.make]
-doc = "make of the daqhat"
-type = "string"
 default = "Measurement Computing Corporation (MCC)"
 
 [config.model]
