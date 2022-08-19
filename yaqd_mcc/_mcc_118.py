@@ -3,24 +3,22 @@ __all__ = ["Mcc118"]
 import asyncio
 from typing import Dict, Any, List
 
-from yaqd_core import IsDaemon
+from yaqd_core import HasMeasureTrigger, IsSensor, IsDaemon
 
 
-class Mcc118(IsDaemon):
+class Mcc118(HasMeasureTrigger, IsSensor, IsDaemon):
     _kind = "mcc-118"
 
     def __init__(self, name, config, config_filepath):
         super().__init__(name, config, config_filepath)
-        # Perform any unique initialization
+        self._channel_names = [f"ch{i}" for i in range(8)]
+        self._channel_units = {k: "V" for k in self._channel_names}
+        import daqhats
+        self._hat = daqhats.mcc118()
 
-    async def update_state(self):
-        """Continually monitor and update the current daemon state."""
-        # If there is no state to monitor continuously, delete this function
-        while True:
-            # Perform any updates to internal state
-            self._busy = False
-            # There must be at least one `await` in this loop
-            # This one waits for something to trigger the "busy" state
-            # (Setting `self._busy = True)
-            # Otherwise, you can simply `await asyncio.sleep(0.01)`
-            await self._busy_sig.wait()
+    async def _measure(self):
+        out = dict()
+        for i in range(8):
+            out[f"ch{i}"] = self._hat.a_in_read(i)
+        return out
+
