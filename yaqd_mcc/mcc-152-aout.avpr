@@ -95,7 +95,8 @@
     },
     "doc": "",
     "hardware": [
-        "mccdaq:mcc152"
+        "mccdaq:mcc152",
+        "raspberry-pi:4b"
     ],
     "installation": {
         "PyPI": "https://pypi.org/project/yaqd-mcc"
