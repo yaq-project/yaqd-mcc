@@ -23,7 +23,7 @@ jobs:
         python -m pip install --upgrade pip!=22.1.*
         python -m pip install --upgrade wheel setuptools
         python -m pip install --upgrade .
-    - name: Test with pytest
+    - name: Run entry points
       run: |
         yaqd-mcc-118 --version
         yaqd-mcc-118 --help
