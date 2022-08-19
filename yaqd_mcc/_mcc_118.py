@@ -14,6 +14,7 @@ class Mcc118(HasMeasureTrigger, IsSensor, IsDaemon):
         self._channel_names = [f"ch{i}" for i in range(8)]
         self._channel_units = {k: "V" for k in self._channel_names}
         import daqhats
+
         self._hat = daqhats.mcc118()
 
     async def _measure(self):
@@ -21,4 +22,3 @@ class Mcc118(HasMeasureTrigger, IsSensor, IsDaemon):
         for i in range(8):
             out[f"ch{i}"] = self._hat.a_in_read(i)
         return out
-
