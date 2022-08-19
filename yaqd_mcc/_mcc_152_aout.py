@@ -16,6 +16,7 @@ class Mcc152AOut(HasLimits, HasPosition, IsDaemon):
 
         # Set up initiation of board and outputs
         import daqhats  # type: ignore
+
         self.d = daqhats.mcc152(self.address)
         self._state["hw_limits"] = [0, 5]
 
