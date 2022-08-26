@@ -239,7 +239,7 @@
             "units_getter": "get_units"
         }
     },
-    "protocol": "mcc152",
+    "protocol": "mcc152analogout",
     "requires": [],
     "state": {
         "destination": {

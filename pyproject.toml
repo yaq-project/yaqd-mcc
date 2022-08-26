@@ -30,7 +30,7 @@ dev = ["black", "pre-commit"]
 
 [tool.flit.scripts]
 yaqd-mcc-118 = "yaqd_mcc._mcc_118:Mcc118.main"
-yaqd-mcc-152 = "yaqd_mcc._mcc_152:Mcc152.main"
+yaqd-mcc-152-analogout = "yaqd_mcc._mcc_152_analogout:Mcc152AnalogOut.main"
 
 
 [tool.black]

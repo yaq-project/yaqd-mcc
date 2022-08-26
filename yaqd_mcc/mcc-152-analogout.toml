@@ -1,4 +1,4 @@
-protocol = "mcc152"
+protocol = "mcc152analogout"
 doc = ""
 traits = ["has-position", "has-limits", "is-daemon"]
 
