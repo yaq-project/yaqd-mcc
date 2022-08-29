@@ -1,6 +1,6 @@
-protocol = "mcc152digitalout"
+protocol = "mcc152digitalin"
 doc = ""
-traits = ["has-position", "has-limits", "is-daemon"]
+traits = ["is-sensor", "is-daemon"]
 
 [links]
 source = "https://github.com/yaq-project/yaqd-mcc"
@@ -35,9 +35,4 @@ default = "MCC 152"
 [messages.get_address]
 doc = "get board address"
 response = "int"
-
-[messages.set_position]
-doc = "set the bit integer value as 0 or 1"
-request = [{"name"="b", "type"="int"}]
-
 

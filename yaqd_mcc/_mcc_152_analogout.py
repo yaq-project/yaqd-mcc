@@ -29,7 +29,7 @@ class Mcc152AnalogOut(HasLimits, HasPosition, IsDaemon):
         async def _setter(self, v):
             self.d.a_out_write(self.terminal, v)
             self._state["position"] = v
-            await asyncio.sleep(5)
+            await asyncio.sleep(1)
             self._busy = False
         for task in asyncio.all_tasks():
             if task.get_name()=="setting position": task.cancel()

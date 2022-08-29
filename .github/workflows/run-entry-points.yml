@@ -29,3 +29,7 @@ jobs:
         yaqd-mcc-118 --help
 	    yaqd-mcc-152-analogout --version
 	    yaqd-mcc-152-analogout --help
+	    yaqd-mcc-152-digitalout --version
+	    yaqd-mcc-152-digitalout --help
+	    yaqd-mcc-152-digitalin --version
+	    yaqd-mcc-152-digitalin --help
