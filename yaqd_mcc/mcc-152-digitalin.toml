@@ -16,9 +16,15 @@ doc = "daqhat address"
 type = "int"
 default = 0
 
-[config.terminal]
-doc = "daqhat digital I/O terminal"
-type = "int"
+[config.terminals]
+doc = "daqhat digital I/O terminals"
+type = "array"
+items = "int"
+
+[config.update_period]
+doc = "update period in seconds"
+type = "double"
+default = 1.0
 
 [config.make]
 doc = "make of the daqhat"

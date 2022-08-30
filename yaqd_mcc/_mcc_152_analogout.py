@@ -17,7 +17,8 @@ class Mcc152AnalogOut(HasLimits, HasPosition, IsDaemon):
 
         # Set up initiation of board and outputs
         self.d = daqhats.mcc152(self.address)
-        self._state["hw_limits"] = [0, 5]
+        self._state["hw_limits"] = [self.d.info()[4],
+                                    self.d.info()[5]]
 
     def get_address(self):
         return self.address

@@ -62,9 +62,15 @@
                 "string"
             ]
         },
-        "terminal": {
-            "doc": "daqhat digital I/O terminal",
-            "type": "int"
+        "terminals": {
+            "doc": "daqhat digital I/O terminals",
+            "items": "int",
+            "type": "array"
+        },
+        "update_period": {
+            "default": 1.0,
+            "doc": "update period in seconds",
+            "type": "double"
         }
     },
     "doc": "",

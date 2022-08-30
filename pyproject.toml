@@ -22,7 +22,7 @@ classifiers = [
 ]
 
 [tool.flit.metadata.urls]
-Source = "https://github.com/yaq-project/yaqd-mcc"
+Source = "https://github.com/yamas q-project/yaqd-mcc"
 Issues = "https://github.com/yaq-project/yaqd-mcc/issues"
 
 [tool.flit.metadata.requires-extra]
