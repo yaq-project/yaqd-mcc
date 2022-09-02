@@ -1,0 +1,36 @@
+protocol = "mcc-152-aout"
+doc = ""
+traits = ["has-position", "has-limits", "is-daemon"]
+hardware = ["mccdaq:mcc152", "raspberry-pi:4b"]
+
+[links]
+source = "https://github.com/yaq-project/yaqd-mcc"
+bugtracker = "https://gitlab.com/yaq/mccdaq/-/issues"
+
+[installation]
+PyPI = "https://pypi.org/project/yaqd-mcc"
+
+[config]
+
+[config.address]
+doc = "daqhat address"
+type = "int"
+default = 0
+
+[config.terminal]
+doc = "daqhat terminal"
+type = "int"
+
+[config.make]
+default = "Measurement Computing Corporation (MCC)"
+
+[config.model]
+default = "MCC 152"
+
+[messages]
+
+[messages.get_address]
+doc = "get board address"
+response = "int"
+
+
