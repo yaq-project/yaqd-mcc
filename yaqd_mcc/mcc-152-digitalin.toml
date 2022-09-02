@@ -1,6 +1,7 @@
 protocol = "mcc152digitalin"
 doc = ""
 traits = ["is-sensor", "is-daemon"]
+hardware = ["mccdaq:mcc152", "raspberry-pi:4b"]
 
 [links]
 source = "https://github.com/yaq-project/yaqd-mcc"

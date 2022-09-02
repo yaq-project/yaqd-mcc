@@ -2,7 +2,6 @@ __all__ = ["Mcc152DigitalIn"]
 
 import asyncio
 from typing import Dict, Any, List
-import daqhats # type: ignore
 from yaqd_core import IsDaemon, IsSensor
 
 
@@ -15,6 +14,7 @@ class Mcc152DigitalIn(IsSensor, IsDaemon):
         self.address = self._config["address"]
         
         # Set up initiation of board and input terminals
+        import daqhats # type: ignore
         self.d = daqhats.mcc152(self.address)
         try: 
             self._channel_names = [str(n) for n in self._config["terminals"]]

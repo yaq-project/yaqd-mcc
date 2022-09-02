@@ -2,7 +2,6 @@ __all__ = ["Mcc152DigitalOut"]
 
 import asyncio
 from typing import Dict, Any, List
-import daqhats # type: ignore
 from yaqd_core import IsDaemon, HasPosition, HasLimits
 
 
@@ -16,6 +15,7 @@ class Mcc152DigitalOut(HasLimits, HasPosition, IsDaemon):
         self.terminal = self._config["terminal"]
 
         # Set up initiation of board and outputs
+        import daqhats # type: ignore
         self.d = daqhats.mcc152(self.address)
         self._state["hw_limits"] = [0, 1]
 

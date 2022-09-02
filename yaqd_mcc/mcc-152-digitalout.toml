@@ -1,6 +1,7 @@
 protocol = "mcc152digitalout"
 doc = ""
 traits = ["has-position", "has-limits", "is-daemon"]
+hardware = ["mccdaq:mcc152", "raspberry-pi:4b"]
 
 [links]
 source = "https://github.com/yaq-project/yaqd-mcc"

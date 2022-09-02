@@ -24,7 +24,7 @@ jobs:
         python -m pip install --upgrade wheel setuptools
         python -m pip install --upgrade .
         python -m pip install git+https://github.com/mccdaq/daqhats
-    - name: Test with pytest
+    - name: Run entry points
       run: |
         yaqd-mcc-118 --version
         yaqd-mcc-118 --help
