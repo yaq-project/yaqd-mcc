@@ -23,12 +23,12 @@ type = "int"
 
 [config.make]
 doc = "make of the daqhat"
-type = "string"
+type = ['null', 'string']
 default = "Measurement Computing Corporation (MCC)"
 
 [config.model]
 doc = "model of the daqhat"
-type = "string"
+type = ['null', 'string']
 default = "MCC 152"
 
 [messages]
@@ -39,6 +39,6 @@ response = "int"
 
 [messages.set_position]
 doc = "set the bit integer value as 0 or 1"
-request = [{"name"="b", "type"="int"}]
+request = [{"name"="b", "type"="double"}]
 
 

@@ -29,7 +29,8 @@ class Mcc152DigitalOut(HasLimits, HasPosition, IsDaemon):
         """
 
         async def _setter(self, b):
-            self.d.dio_output_write_bit(self.terminal, b)
+            bit = int(b)
+            self.d.dio_output_write_bit(self.terminal, bit)
             self._state["position"] = self.d.dio_output_read_bit(self.terminal)
             await asyncio.sleep(1)
             self._busy = False

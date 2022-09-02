@@ -23,13 +23,15 @@ type = "int"
 
 [config.make]
 doc = "make of the daqhat"
-type = "string"
+type = ['null', 'string']
 default = "Measurement Computing Corporation (MCC)"
 
 [config.model]
 doc = "model of the daqhat"
-type = "string"
+type = ['null', 'string']
 default = "MCC 152"
+
+[state]
 
 [messages]
 

@@ -40,13 +40,19 @@
             "default": "Measurement Computing Corporation (MCC)",
             "doc": "make of the daqhat",
             "origin": "is-daemon",
-            "type": "string"
+            "type": [
+                "null",
+                "string"
+            ]
         },
         "model": {
             "default": "MCC 152",
             "doc": "model of the daqhat",
             "origin": "is-daemon",
-            "type": "string"
+            "type": [
+                "null",
+                "string"
+            ]
         },
         "port": {
             "doc": "TCP port for daemon to occupy.",
@@ -196,6 +202,7 @@
     },
     "protocol": "mcc152digitalin",
     "requires": [],
+    "state": {},
     "traits": [
         "is-daemon",
         "is-sensor"
