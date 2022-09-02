@@ -15,10 +15,10 @@ class Mcc152AnalogOut(HasLimits, HasPosition, IsDaemon):
         self.terminal = self._config["terminal"]
 
         # Set up initiation of board and outputs
-        import daqhats # type: ignore
+        import daqhats  # type: ignore
+
         self.d = daqhats.mcc152(self.address)
-        self._state["hw_limits"] = [self.d.info()[4],
-                                    self.d.info()[5]]
+        self._state["hw_limits"] = [self.d.info()[4], self.d.info()[5]]
 
     def get_address(self):
         return self.address
@@ -27,11 +27,14 @@ class Mcc152AnalogOut(HasLimits, HasPosition, IsDaemon):
         """
         voltage is float 0.0-5.0
         """
+
         async def _setter(self, v):
             self.d.a_out_write(self.terminal, v)
             self._state["position"] = v
             await asyncio.sleep(1)
             self._busy = False
+
         for task in asyncio.all_tasks():
-            if task.get_name()=="setting position": task.cancel()
+            if task.get_name() == "setting position":
+                task.cancel()
         asyncio.create_task(_setter(self, v), name="setting position")
