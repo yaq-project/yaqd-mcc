@@ -1,5 +1,9 @@
 {
     "config": {
+        "channels": {
+            "type": "map",
+            "values": "channel"
+        },
         "enable": {
             "default": true,
             "doc": "Disable this daemon. The kind entry-point will not attempt to start this daemon.",
