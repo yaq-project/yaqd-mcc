@@ -11,9 +11,9 @@ yaq daemons for Measurement Computing Corp data acquisition hardware
 This package contains the following daemon(s):
 
 - https://yaq.fyi/daemons/mcc-118
+- https://yaq.fyi/daemons/mcc-ulw-sensor
 
 Maintainers:
 
 - [Blaise Thompson](https://github.com/untzag)
 - [Peter Cruz Parrilla](https://github.com/pcruzparri)
-
