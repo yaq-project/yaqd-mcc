@@ -55,5 +55,7 @@ class MccUlwSensor(HasMeasureTrigger, IsSensor, IsDaemon):
             else:
                 value = ul.a_in_32(0, c.index, ai_range)
                 voltage = ul.to_eng_units_32(0, ai_range, value)
+            if c.invert:
+                voltage *= -1
             out[c.name] = voltage
         return out

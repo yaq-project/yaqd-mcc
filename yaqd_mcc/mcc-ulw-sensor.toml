@@ -21,6 +21,10 @@ fields = [{"name"="enabled", "type"="boolean", "default"=true},
 
 [config]
 
+[config.channels]
+type = "map"
+values = "channel"
+
 [state]
 
 [messages]
