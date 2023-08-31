@@ -2,6 +2,7 @@ __all__ = ["Mcc118"]
 
 import asyncio
 from typing import Dict, Any, List
+from dataclasses import dataclass
 
 from yaqd_core import HasMeasureTrigger, IsSensor, IsDaemon
 
