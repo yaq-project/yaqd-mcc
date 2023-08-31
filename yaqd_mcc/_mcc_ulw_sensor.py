@@ -26,6 +26,7 @@ class MccUlwSensor(HasMeasureTrigger, IsSensor, IsDaemon):
         self._channel_names = [c.name for c in self._channels]
         self._channel_units = {k: "V" for k in self._channel_names}
         from mcculw import ul
+
         ul.ignore_instacal()
         devices = ul.get_daq_device_inventory(InterfaceType.ANY)
         if self._config["serial"]:
@@ -37,11 +38,13 @@ class MccUlwSensor(HasMeasureTrigger, IsSensor, IsDaemon):
         else:
             ul.create_daq_device(0, devices[0])
         from mcculw.device_info import DaqDeviceInfo
+
         info = DaqDeviceInfo(board_num)
         self._ai_info = info.get_ai_info()
 
     async def _measure(self):
         from mcculw import ul
+
         out = dict()
         for c in self._channels:
             ai_range = self._ai_info.supported_ranges[c.index]
