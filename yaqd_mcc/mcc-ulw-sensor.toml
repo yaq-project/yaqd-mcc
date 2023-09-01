@@ -6,6 +6,7 @@ hardware = ["mccdaq:mcc-usb-205"]
 [links]
 source = "https://github.com/yaq-project/yaqd-mcc"
 bugtracker = "https://github.com/yaq-project/yaqd-mcc/-/issues"
+example-configs = "https://github.com/yaq-project/yaqd-mcc/tree/main/example-yaq-configs/mcc-ulw-sensor"
 
 [installation]
 PyPI = "https://pypi.org/project/yaqd-mcc"

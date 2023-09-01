@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Added
+- example config mcc-ulw-sensor
+
 ## [2023.8.0]
 
 ### Added
