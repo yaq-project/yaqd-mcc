@@ -1,0 +1,6 @@
+[daq]
+port = 38000
+serial = "210796D"
+
+[daq.channels.mychannel]
+index = 0

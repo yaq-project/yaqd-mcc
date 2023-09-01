@@ -81,6 +81,7 @@
     },
     "links": {
         "bugtracker": "https://github.com/yaq-project/yaqd-mcc/-/issues",
+        "example-configs": "https://github.com/yaq-project/yaqd-mcc/tree/main/example-yaq-configs/mcc-ulw-sensor",
         "source": "https://github.com/yaq-project/yaqd-mcc"
     },
     "messages": {
