@@ -34,5 +34,3 @@ jobs:
         yaqd-mcc-152-digitalout --help
         yaqd-mcc-152-digitalin --version
         yaqd-mcc-152-digitalin --help
-        yaqd-mcc-ulw-sensor --version
-        yaqd-mcc-ulw-sensor --help
