@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
 
     steps:
     - uses: actions/checkout@v2
@@ -34,3 +34,5 @@ jobs:
         yaqd-mcc-152-digitalout --help
         yaqd-mcc-152-digitalin --version
         yaqd-mcc-152-digitalin --help
+        yaqd-mcc-ulw-sensor --version
+        yaqd-mcc-ulw-sensor --help
