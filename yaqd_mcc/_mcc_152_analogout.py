@@ -18,10 +18,10 @@ class Mcc152AnalogOut(HasLimits, HasPosition, IsDaemon):
         import daqhats  # type: ignore
 
         self.d = daqhats.mcc152(self.address)
-        if float('inf') not in self._config['limits']:
-            self._state['hw_limits'] = self._config['limits']
+        if float("inf") not in self._config["limits"]:
+            self._state["hw_limits"] = self._config["limits"]
         else:
-            self._state['hw_limits'] = [self.d.info()[4], self.d.info()[5]]
+            self._state["hw_limits"] = [self.d.info()[4], self.d.info()[5]]
 
     def get_address(self):
         return self.address
