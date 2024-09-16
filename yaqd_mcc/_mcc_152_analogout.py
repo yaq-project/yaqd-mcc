@@ -1,12 +1,12 @@
-__all__ = ["Mcc152AOut"]
+__all__ = ["Mcc152AnalogOut"]
 
 import asyncio
 from typing import Dict, Any, List
 from yaqd_core import IsDaemon, HasPosition, HasLimits
 
 
-class Mcc152AOut(HasLimits, HasPosition, IsDaemon):
-    _kind = "mcc-152-aout"
+class Mcc152AnalogOut(HasLimits, HasPosition, IsDaemon):
+    _kind = "mcc-152-analogout"
 
     def __init__(self, name, config, config_filepath):
         super().__init__(name, config, config_filepath)
@@ -18,7 +18,10 @@ class Mcc152AOut(HasLimits, HasPosition, IsDaemon):
         import daqhats  # type: ignore
 
         self.d = daqhats.mcc152(self.address)
-        self._state["hw_limits"] = [0, 5]
+        if float("inf") not in self._config["limits"]:
+            self._state["hw_limits"] = self._config["limits"]
+        else:
+            self._state["hw_limits"] = [self.d.info()[4], self.d.info()[5]]
 
     def get_address(self):
         return self.address
@@ -31,7 +34,7 @@ class Mcc152AOut(HasLimits, HasPosition, IsDaemon):
         async def _setter(self, v):
             self.d.a_out_write(self.terminal, v)
             self._state["position"] = v
-            await asyncio.sleep(5)
+            await asyncio.sleep(1)
             self._busy = False
 
         for task in asyncio.all_tasks():

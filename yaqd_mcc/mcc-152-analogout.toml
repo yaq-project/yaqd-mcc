@@ -1,4 +1,4 @@
-protocol = "mcc-152-aout"
+protocol = "mcc152analogout"
 doc = ""
 traits = ["has-position", "has-limits", "is-daemon"]
 hardware = ["mccdaq:mcc152", "raspberry-pi:4b"]
@@ -22,10 +22,16 @@ doc = "daqhat terminal"
 type = "int"
 
 [config.make]
+doc = "make of the daqhat"
+type = ['null', 'string']
 default = "Measurement Computing Corporation (MCC)"
 
 [config.model]
+doc = "model of the daqhat"
+type = ['null', 'string']
 default = "MCC 152"
+
+[state]
 
 [messages]
 
